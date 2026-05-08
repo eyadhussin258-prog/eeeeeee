@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐏𝐞𝐫𝐟𝐞𝐜𝐭 𝐂𝐅𝐖 - سيرفر FiveM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="assets/images/logo.svg" alt="Hair Server" class="logo-icon">
+                    <h1 class="logo-text">𝐏𝐞𝐫𝐟𝐞𝐜𝐭 𝐂𝐅𝐖</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">
+                            <i class="fas fa-home"></i>
+                            <span>الرئيسية</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#rules" class="nav-link">
+                            <i class="fas fa-gavel"></i>
+                            <span>القوانين</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#store" class="nav-link">
+                            <i class="fas fa-store"></i>
+                            <span>المتجر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#applications" class="nav-link">
+                            <i class="fas fa-file-signature"></i>
+                            <span>التقديمات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#admin-team" class="nav-link">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>فريق الإدارة</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#partners" class="nav-link">
+                            <i class="fas fa-handshake"></i>
+                            <span>الشراكات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#reviews" class="nav-link">
+                            <i class="fas fa-star"></i>
+                            <span>التقييمات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#polls" class="nav-link">
+                            <i class="fas fa-poll"></i>
+                            <span>التصويتات</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button id="discord-login" class="btn-discord">
+                        <i class="fab fa-discord"></i>
+                        <span>تسجيل الدخول</span>
+                    </button>
+                    <div class="user-profile" id="user-profile" style="display: none;">
+                        <img src="" alt="User" class="user-avatar">
+                        <span class="user-name"></span>
+                        <div class="dropdown">
+                            <button class="dropdown-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#profile">الملف الشخصي</a>
+                                <a href="#admin-panel" id="admin-link" style="display: none;">لوحة التحكم</a>
+                                <a href="#logout" onclick="HairServer.logout(); return false;">تسجيل الخروج</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">مرحباً بك في 𝐏𝐞𝐫𝐟𝐞𝐜𝐭 𝐂𝐅𝐖</h2>
+                    <p class="hero-subtitle">أفضل سيرفر FiveM عربي بتجربة رول بلاي فريدة</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('applications')">
+                            <i class="fas fa-play"></i>
+                            ابدأ اللعب الآن
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('rules')">
+                            <i class="fas fa-book"></i>
+                            اقرأ القوانين
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="server-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span class="stat-number" id="online-players">128</span>
+                            <span class="stat-label">لاعبين متصلين</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-server"></i>
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">وقت التشغيل</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span class="stat-number">#1</span>
+                            <span class="stat-label">أفضل سيرفر</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="particles"></div>
+            </div>
+        </section>
+
+        <!-- Server Info Section -->
+        <section class="server-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>تجربة فريدة</h3>
+                        <p>أنظمة رول بلاي متطورة وقصص مثيرة</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>أمان متقدم</h3>
+                        <p>حماية كاملة ضد الغش والاستغلال</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>إدارة نشطة</h3>
+                        <p>فريق إدارة متواجد 24/7 لمساعدتك</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-gift"></i>
+                        <h3>هدايا وفعاليات</h3>
+                        <p>فعاليات أسبوعية وجوائز قيمة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules Section -->
+        <section id="rules" class="rules-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>قوانين السيرفر</h2>
+                    <p>اطلع على قوانين السيرفر ومصطلحات الرول بلاي</p>
+                </div>
+                <div class="rules-container">
+                    <div class="rule-category">
+                        <div class="rule-header" onclick="toggleRule(this)">
+                            <h3>القوانين العامة</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>احترام جميع اللاعبين والإدارة</li>
+                                <li>ممنوع استخدام أي برامج غش</li>
+                                <li>ممنوع السب والشتم</li>
+                                <li>يجب اتباع تعليمات الإدارة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rule-category">
+                        <div class="rule-header" onclick="toggleRule(this)">
+                            <h3>قوانين الحياة الواقعية</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>يجب اللعب بطريقة واقعية</li>
+                                <li>ممنوع القتل العشوائي (RDM)</li>
+                                <li>ممنوع سرقة السيارات عشوائياً</li>
+                                <li>يجب احترام قوانين المرور</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rule-category">
+                        <div class="rule-header" onclick="toggleRule(this)">
+                            <h3>قوانين التقديمات</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>يجب التقديم باللغة العربية</li>
+                                <li>ممنوع التقديم أكثر من مرة في نفس اليوم</li>
+                                <li>يجب انتظار الرد قبل التقديم مرة أخرى</li>
+                                <li>يجب كتابة معلومات حقيقية وصحيحة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rule-category">
+                        <div class="rule-header" onclick="toggleRule(this)">
+                            <h3>قوانين الصالات والمباني</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>ممنوع إطلاق النار داخل المباني الحكومية</li>
+                                <li>يجب احترام موظفي الحكومة</li>
+                                <li>ممنوع التسبب في إزعاج الآخرين داخل المباني</li>
+                                <li>يجب اتباع الإجراءات الرسمية في المعاملات</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rule-category">
+                        <div class="rule-header" onclick="toggleRule(this)">
+                            <h3>قوانين الطرق والقيادة</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>يجب القيادة على الجانب الأيمن من الطريق</li>
+                                <li>ممنوع القيادة عكس الاتجاه</li>
+                                <li>يجب إعطاء الأولوية للمركبات الطارئة</li>
+                                <li>ممنوع السرعة الزائدة في المدن</li>
+                                <li>يجب استخدام إشارات الانعطاف عند الالتفاف</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Section -->
+        <section id="store" class="store-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>متجر السيرفر</h2>
+                    <p>احصل على أفضل السيارات والمميزات</p>
+                </div>
+                <div class="store-grid" id="store-grid">
+                    <div class="empty-store">
+                        <i class="fas fa-store" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+                        <h3 style="color: var(--text-secondary); margin-bottom: 0.5rem;">المتجر فارغ حالياً</h3>
+                        <p style="color: var(--text-muted);">سيتم إضافة المنتجات قريباً</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="applications-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>التقديمات</h2>
+                    <p>قدم للانضمام إلى فريق الإدارة أو تفعيل حسابك</p>
+                </div>
+                <div class="applications-grid">
+                    <div class="app-card">
+                        <div class="app-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>تقديم إدارة</h3>
+                        <p>قدم للانضمام إلى فريق إدارة السيرفر</p>
+                        <button class="btn btn-primary" onclick="openApplication('admin')">تقديم الآن</button>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3>تفعيل الحساب</h3>
+                        <p>طلب تفعيل حسابك في السيرفر</p>
+                        <button class="btn btn-primary" onclick="openApplication('activation')">تقديم الآن</button>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h3>تقديم فصيل</h3>
+                        <p>إنشاء فصيل جديد في السيرفر</p>
+                        <button class="btn btn-primary" onclick="openApplication('faction')">تقديم الآن</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Team Section -->
+        <section id="admin-team" class="admin-team-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>فريق الإدارة</h2>
+                    <p>تعرف على فريق الإدارة المخصص لمساعدتك</p>
+                </div>
+                <div class="team-grid" id="team-grid">
+                    <!-- Team members will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>تقييمات السيرفر</h2>
+                    <p>شاركنا رأيك في السيرفر وساعد اللاعبين الجدد</p>
+                </div>
+                <div class="reviews-container">
+                    <div class="review-form">
+                        <h3>اكتب تقييمك</h3>
+                        <div class="rating-input">
+                            <div class="stars" id="rating-stars">
+                                <i class="fas fa-star" data-rating="1"></i>
+                                <i class="fas fa-star" data-rating="2"></i>
+                                <i class="fas fa-star" data-rating="3"></i>
+                                <i class="fas fa-star" data-rating="4"></i>
+                                <i class="fas fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="review-text" placeholder="اكتب تقييمك هنا..." rows="4"></textarea>
+                        </div>
+                        <button class="btn btn-primary" onclick="submitReview()">
+                            <i class="fas fa-paper-plane"></i>
+                            إرسال التقييم
+                        </button>
+                    </div>
+                    <div class="reviews-list" id="reviews-list">
+                        <!-- Reviews will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Polls Section -->
+        <section id="polls" class="polls-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>تصويتات السيرفر</h2>
+                    <p>شارك في القرارات المهمة للسيرفر</p>
+                </div>
+                <div class="polls-container" id="polls-container">
+                    <!-- Polls will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin Panel (Hidden by default, only for server owner) -->
+    <div id="admin-panel" class="admin-panel" style="display: none;">
+        <div class="admin-header">
+            <h2>لوحة تحكم المالك</h2>
+            <button class="close-admin" onclick="closeAdminPanel()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="switchAdminTab('applications')">التقديمات</button>
+                <button class="tab-btn" onclick="switchAdminTab('vehicles')">السيارات</button>
+                <button class="tab-btn" onclick="switchAdminTab('players')">اللاعبون</button>
+                <button class="tab-btn" onclick="switchAdminTab('settings')">الإعدادات</button>
+            </div>
+            
+            <!-- Applications Management -->
+            <div id="admin-applications" class="admin-tab-content active">
+                <h3>إدارة التقديمات</h3>
+                <div class="applications-list" id="admin-applications-list">
+                    <!-- Applications will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Vehicles Management -->
+            <div id="admin-vehicles" class="admin-tab-content">
+                <h3>إدارة السيارات</h3>
+                <button class="btn btn-primary" onclick="addVehicle()">
+                    <i class="fas fa-plus"></i>
+                    إضافة سيارة جديدة
+                </button>
+                <div class="vehicles-list" id="admin-vehicles-list">
+                    <!-- Vehicles will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Players Management -->
+            <div id="admin-players" class="admin-tab-content">
+                <h3>إدارة اللاعبين</h3>
+                <div class="players-list" id="admin-players-list">
+                    <!-- Players will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Settings -->
+            <div id="admin-settings" class="admin-tab-content">
+                <h3>إعدادات السيرفر</h3>
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label>رسالة الترحيب</label>
+                        <textarea id="welcome-message" placeholder="اكتب رسالة الترحيب..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>رابط ديسكورد</label>
+                        <input type="text" id="discord-link" placeholder="https://discord.gg/...">
+                    </div>
+                    <button class="btn btn-primary" onclick="saveSettings()">حفظ الإعدادات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Modal -->
+    <div id="application-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">تقديم</h3>
+                <button class="close-modal" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="application-form">
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <input type="text" id="app-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>العمر</label>
+                        <input type="number" id="app-age" required>
+                    </div>
+                    <div class="form-group">
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" id="app-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>لماذا تريد الانضمام؟</label>
+                        <textarea id="app-reason" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>الخبرة السابقة</label>
+                        <textarea id="app-experience" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">إرسال التقديم</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>𝐏𝐞𝐫𝐟𝐞𝐜𝐭 𝐂𝐅𝐖</h3>
+                <p>أفضل سيرفر FiveM عربي بتجربة رول بلاي فريدة</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#rules">القوانين</a></li>
+                    <li><a href="#store">المتجر</a></li>
+                    <li><a href="#applications">التقديمات</a></li>
+                    <li><a href="#admin-team">فريق الإدارة</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>الدعم</h4>
+                <ul>
+                    <li><a href="#">مركز المساعدة</a></li>
+                    <li><a href="#">تواصل معنا</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hair Server. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
